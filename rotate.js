@@ -6,16 +6,24 @@ function makePath(path, num) {
 
 function rotate(path, count, cb) {
   function shift(num) {
+    var src, dst = makePath(path, num);
+
     if (num === 0) {
-      return cb(null);
+      src = path;
+    } else {
+      src = makePath(path, num - 1);
     }
 
-    fs.rename(makePath(path, num - 1), makePath(path, num), function(err) {
+    fs.rename(src, dst, function(err) {
       if (err && err.code !== 'ENOENT') {
         return cb(err);
       }
       
-      shift(num - 1);
+      if (num === 0) {
+        cb(null);
+      } else {
+        shift(num - 1);
+      }
     });
   }
 
