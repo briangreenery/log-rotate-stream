@@ -1,0 +1,1 @@
+var rotate = require('./rotate');
