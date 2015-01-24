@@ -4,7 +4,7 @@
   "description": "Stream data to a rotating log file",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "tap test/*"
   },
   "repository": {
     "type": "git",
@@ -20,5 +20,9 @@
   "bugs": {
     "url": "https://github.com/briangreenery/log-rotate-stream/issues"
   },
-  "homepage": "https://github.com/briangreenery/log-rotate-stream"
+  "homepage": "https://github.com/briangreenery/log-rotate-stream",
+  "devDependencies": {
+    "tap": "^0.5.0",
+    "tape": "^3.4.0"
+  }
 }
