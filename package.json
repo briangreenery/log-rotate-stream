@@ -1,0 +1,24 @@
+{
+  "name": "log-rotate-stream",
+  "version": "1.0.0",
+  "description": "Stream data to a rotating log file",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/briangreenery/log-rotate-stream.git"
+  },
+  "keywords": [
+    "log",
+    "stream",
+    "rotate"
+  ],
+  "author": "Brian Green",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/briangreenery/log-rotate-stream/issues"
+  },
+  "homepage": "https://github.com/briangreenery/log-rotate-stream"
+}
