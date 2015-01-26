@@ -15,7 +15,9 @@ For example, log the output of a child process:
     
     es.merge(child.stdout, child.stderr).pipe(createLogStream('child.log'));
 
-## Options
+## createLogStream(path, options)
+
+Create and return a new log stream to `path`. The optional arguments are:
 
 * `maxSize` - When the log file exceeds this size, it will be rotated.
 Default: `5 * 1024 * 1024` (5 MB)
