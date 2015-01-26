@@ -9,27 +9,6 @@ function testDir() {
   return path.join(os.tmpdir(), 'log-rotate-stream-test');
 }
 
-function testLog() {
-  return path.join(testDir(), 'test.log');
-}
-
-function cleanTestDir() {
-  rimraf.sync(testDir());
-}
-
-function resetTestDir() {
-  rimraf.sync(testDir());
-  fs.mkdirSync(testDir());
-}
-
-function makeInitial(contents) {
-  resetTestDir();
-
-  for (var name in contents) {
-    fs.writeFileSync(path.join(testDir(), name), contents[name]);
-  }
-}
-
 function checkResult(t, expected) {
   var actual = {};
 
@@ -41,8 +20,14 @@ function checkResult(t, expected) {
 }
 
 function rotateTest(count, t, initial, expected) {
-  makeInitial(initial);
-  rotate(testLog(), count, function(err) {
+  rimraf.sync(testDir());
+  fs.mkdirSync(testDir());
+
+  for (var name in initial) {
+    fs.writeFileSync(path.join(testDir(), name), initial[name]);
+  }
+
+  rotate(path.join(testDir(), 'test.log'), count, function(err) {
     t.error(err);
     checkResult(t, expected);
   });
