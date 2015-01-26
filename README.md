@@ -7,13 +7,15 @@ archive, and `output.log.9` the oldest archive.
 
 For example, log the output of a child process:
 
-    var fork = require('child_process').fork,
-      es = require('event-stream'),
-      createLogStream = require('log-rotate-stream');
-    
-    var child = fork('child.js', {silent: true});
-    
-    es.merge(child.stdout, child.stderr).pipe(createLogStream('child.log'));
+```javascript
+var fork = require('child_process').fork,
+  es = require('event-stream'),
+  createLogStream = require('log-rotate-stream');
+
+var child = fork('child.js', {silent: true});
+
+es.merge(child.stdout, child.stderr).pipe(createLogStream('child.log'));
+```
 
 ## createLogStream(path, options)
 
