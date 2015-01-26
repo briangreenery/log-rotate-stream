@@ -1,6 +1,6 @@
 {
   "name": "log-rotate-stream",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Stream data to a rotating log file",
   "main": "index.js",
   "scripts": {
