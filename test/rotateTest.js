@@ -1,4 +1,5 @@
-var fs = require('fs'),
+var checkDirEqual = require('./checkDirEqual'),
+  fs = require('fs'),
   os = require('os'),
   path = require('path'),
   rotate = require('../rotate'),
@@ -7,16 +8,6 @@ var fs = require('fs'),
 
 function testDir() {
   return path.join(os.tmpdir(), 'log-rotate-stream-test');
-}
-
-function checkResult(t, expected) {
-  var actual = {};
-
-  fs.readdirSync(testDir()).forEach(function(name) {
-    actual[name] = fs.readFileSync(path.join(testDir(), name)).toString();
-  });
-
-  t.deepEqual(actual, expected);
 }
 
 function rotateTest(count, t, initial, expected) {
@@ -29,7 +20,7 @@ function rotateTest(count, t, initial, expected) {
 
   rotate(path.join(testDir(), 'test.log'), count, function(err) {
     t.error(err);
-    checkResult(t, expected);
+    checkDirEqual(t, testDir(), expected);
   });
 }
 
