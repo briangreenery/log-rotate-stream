@@ -25,3 +25,6 @@ Create and return a new log stream to `path`. The optional arguments are:
 Default: `5 * 1024 * 1024` (5 MB)
 
 * `count` - The number of old log files to save. Default: `10`.
+
+Note that the log is rotated when `maxSize` is exceeded. This is so that
+typically only complete messages will be written to the log.
