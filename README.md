@@ -1,6 +1,6 @@
 # log-rotate-stream
 
-Stream data to a rotating log file. When the `output.log` file grows to big, it
+Stream data to a rotating log file. When the `output.log` file grows too big, it
 is moved to `output.log.0`. By default, 10 old log files are saved, and they are
 always numbered in order of age. So `output.log.0` is always the most recent
 archive, and `output.log.9` the oldest archive.
